@@ -1,9 +1,11 @@
 import React from 'react';
-import TopBar from "./components/TopBar";
+import SearchBar from "./components/TopBar/SearchBar";
 import BottomBar from "./components/BottomBar";
 import CardsWrapper from "./components/Cards/CardsWrapper";
+import SelectBar from "./components/TopBar/SelectBar";
 import './App.css';
 import 'antd/dist/reset.css';
+
 
 const App = () => {
   return (
@@ -12,10 +14,10 @@ const App = () => {
 
           <div className="grid-wrapper">
               <article className="half-left">
-                  <span>типы покемонов теги</span>
+                  <SelectBar />
               </article>
               <article className="half-right">
-                  <TopBar />
+                  <SearchBar />
               </article>
           </div>
 

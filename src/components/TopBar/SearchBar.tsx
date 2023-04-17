@@ -3,7 +3,7 @@ import { Input, Space } from 'antd';
 
 const { Search } = Input;
 
-const TopBar = () => {
+const SearchBar = () => {
     const onSearch = (value: string) => console.log(value);
 
     return (
@@ -19,4 +19,4 @@ const TopBar = () => {
     );
 };
 
-export default TopBar;
+export default SearchBar;

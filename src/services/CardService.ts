@@ -17,8 +17,7 @@ export const cardAPI = createApi({
             query: (name: string) => ({
                 url: `/pokemon/${name}`,
                 params: { _name: name}
-            }),
-            // providesTags: result => ['CardData']
+            })
         }),
     })
 });

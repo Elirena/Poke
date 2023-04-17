@@ -1,14 +1,42 @@
 import React, {FC} from 'react';
-import {ICard} from "../../models/ICard";
+import { Col, Typography , Row } from 'antd';
+import {useAppSelector} from "../../hooks/redux";
+
+const { Text } = Typography;
 
 interface IProp {
-    card: ICard
+    name: string
 }
-const CardDetails: FC<IProp> = ({card}) => {
+const CardDetails: FC<IProp> = ({name}) => {
+    const  {cards} = useAppSelector(state => state.listReducer)
+    const card = cards.find(el => el.name === name)
+
     return (
         <div>
-            <div>{card.name}</div>
-            <div>{card.url}</div>
+            {card &&
+                <Row>
+                    <Col flex={2}>
+                        <div>
+                            <span>height: </span>
+                            <Text type="warning">{card.height}</Text>
+                        </div>
+                        <div>
+                            <span>base experience: </span>
+                            <Text type="warning">{card.baseExperience}</Text>
+                        </div>
+                        <div>
+                            <span>weight: </span>
+                            <Text type="warning">{card.weight}</Text>
+                        </div>
+                    </Col>
+                    <Col flex={3}>
+                        <div>abilities: </div>
+                        <Text type="success"> {
+                            card.abilities?.map(el => <div>{el.ability.name}</div>)
+                        }</Text>
+                    </Col>
+                </Row>
+            }
         </div>
     );
 };

@@ -1,6 +1,13 @@
 export interface ICard {
     name: string;
-    url: string;
     avatar?: string;
-    type?: []
+    types?: [];
+    height?: number;
+    weight?: number;
+    baseExperience?: number;
+    abilities?: Ability[];
+}
+
+type Ability = {
+    ability: {name:"string"}
 }

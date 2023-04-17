@@ -1,10 +1,12 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import listReducer from './reducers/ListSlice';
 import {cardAPI} from "../services/CardService";
+import {typeAPI} from "../services/TypeService";
 
 const rootReducer = combineReducers({
     listReducer,
-    [cardAPI.reducerPath]: cardAPI.reducer
+    [cardAPI.reducerPath]: cardAPI.reducer,
+    [typeAPI.reducerPath]: typeAPI.reducer
 })
 
 export const setupStore = () => {
@@ -13,6 +15,7 @@ export const setupStore = () => {
         middleware: (getDefaultMiddleware) =>
             getDefaultMiddleware()
                 .concat(cardAPI.middleware)
+                .concat(typeAPI.middleware)
     })
 }
 
