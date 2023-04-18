@@ -18,7 +18,9 @@ const CardItem: FC<IProp> = ({name}) => {
     const {data: card, isLoading, error} = cardAPI.useFetchCardQuery(name);
 
     if (isLoading && !card) {
-        return <StatusNotifications status={'loading'} />
+        return <div className="card">
+                    <StatusNotifications status={'loading'} />
+               </div>
     }
     if (error) {
         return <StatusNotifications status={'error'} />

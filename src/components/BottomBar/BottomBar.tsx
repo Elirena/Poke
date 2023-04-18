@@ -11,8 +11,10 @@ const BottomBar = () => {
     const {itemsPerPage, totalCardsCount} = useAppSelector(state => state.listReducer)
 
     const onChange = (value: number, size: number) => {
-        value && dispatch(changeOffset(value))
-
+        if(value)  {
+            document.documentElement.scrollTop = 0;
+            dispatch(changeOffset(value))
+        }
         if (itemsPerPage !== size) {
             dispatch(changeItemsPerPage(size));
         }
