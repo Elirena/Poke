@@ -9,10 +9,9 @@ import type { SelectProps } from 'antd';
 const SelectBar = () => {
     const dispatch = useAppDispatch();
     const {changeTypesFilter} = listSlice.actions;
+    const {typesFilter} = useAppSelector(state => state.listReducer)
 
     const {data: types, error, isLoading} = typeAPI.useFetchAllTypesQuery({});
-
-    const {typesFilter} = useAppSelector(state => state.listReducer)
 
     const handleChange = (value: string[]) => {
         dispatch(changeTypesFilter(value as []))

@@ -26,15 +26,15 @@ const CardItem: FC<IProp> = ({name}) => {
     dispatch(addNewCard(card));
 
     return (
-        <span>
-            <img src={`${card.sprites.front_default}`} height='80px'/>
-            {name}
+        <div className="card">
+            <img src={`${card.sprites.front_default}`} height='80px' />
+            <span>{name}</span>
            {card.types.map((el: any) => (
-               <span>  /
+               <span>/
                    <Text mark>{el.type.name}</Text>
                </span>
            ))}
-        </span>
+        </div>
     );
 };
 

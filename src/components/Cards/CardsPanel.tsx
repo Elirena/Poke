@@ -15,9 +15,11 @@ const CardsPanel: FC<IProp> = ({cards}) => {
     };
 
     return (
-        <Collapse onChange={onChange} collapsible="header">
+        <Collapse onChange={onChange} collapsible="header" className="collapseBar" >
             {cards.map((card: ICard) => (
                 <Panel
+                    className="collapsePanel"
+                    showArrow={false}
                     header={<CardItem name={card.name}/>}
                     key={card.name}
                 >
