@@ -9,13 +9,10 @@ const { Panel } = Collapse;
 interface IProp {
     cards: ICard[]
 }
-const CardsPanel: FC<IProp> = ({cards}) => {
-    const onChange = (key: string | string[]) => {
-        console.log(key);
-    };
 
+const CardsPanel: FC<IProp> = ({cards}) => {
     return (
-        <Collapse onChange={onChange} collapsible="header" className="collapseBar" >
+        <Collapse collapsible="header" className="collapseBar" >
             {cards.map((card: ICard) => (
                 <Panel
                     className="collapsePanel"
@@ -29,7 +26,5 @@ const CardsPanel: FC<IProp> = ({cards}) => {
         </Collapse>
     );
 };
-
-
 
 export default CardsPanel;

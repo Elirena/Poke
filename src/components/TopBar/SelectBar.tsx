@@ -5,6 +5,7 @@ import {listSlice} from "../../store/reducers/ListSlice";
 import { Select } from 'antd';
 
 import type { SelectProps } from 'antd';
+import StatusNotifications from "../UIKit/StatusNotifications";
 
 const SelectBar = () => {
     const dispatch = useAppDispatch();
@@ -24,18 +25,27 @@ const SelectBar = () => {
         }));
     },[types?.results]);
 
+    if (error) {
+        return <StatusNotifications status={'error'} />
+    }
+    if (isLoading) {
+        return <StatusNotifications status={'loading'} />
+    }
+
     return (
         <div>
-            <Select
-                mode="multiple"
-                allowClear
-                style={{ width: '200px' }}
-                placeholder="Select types"
-                defaultValue={[]}
-                value={typesFilter}
-                onChange={handleChange}
-                options={options}
-            />
+            {types &&
+                <Select
+                    mode="multiple"
+                    allowClear
+                    style={{ width: '200px' }}
+                    placeholder="Select types"
+                    defaultValue={[]}
+                    value={typesFilter}
+                    onChange={handleChange}
+                    options={options}
+                />
+            }
         </div>
     );
 };

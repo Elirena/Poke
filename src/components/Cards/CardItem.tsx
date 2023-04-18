@@ -3,6 +3,7 @@ import {cardAPI} from "../../services/CardService";
 import {listSlice} from "../../store/reducers/ListSlice";
 import {useAppDispatch} from "../../hooks/redux";
 import { Typography } from 'antd';
+import StatusNotifications from "../UIKit/StatusNotifications";
 
 const { Text } = Typography;
 
@@ -17,10 +18,10 @@ const CardItem: FC<IProp> = ({name}) => {
     const {data: card, isLoading, error} = cardAPI.useFetchCardQuery(name);
 
     if (isLoading && !card) {
-        return <Text type="warning">loading...</Text>;
+        return <StatusNotifications status={'loading'} />
     }
     if (error) {
-        return <Text type="danger">Error</Text>;
+        return <StatusNotifications status={'error'} />
     }
 
     dispatch(addNewCard(card));

@@ -1,6 +1,6 @@
 import React from 'react';
-import {useAppDispatch, useAppSelector} from "../hooks/redux";
-import {listSlice} from "../store/reducers/ListSlice";
+import {useAppDispatch, useAppSelector} from "../../hooks/redux";
+import {listSlice} from "../../store/reducers/ListSlice";
 import {Pagination} from 'antd';
 
 const itemsPerPageOptions = [10, 20, 50]

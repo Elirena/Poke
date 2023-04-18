@@ -4,9 +4,9 @@ import {ICard} from "../../models/ICard";
 import {cardAPI} from "../../services/CardService";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {listSlice} from "../../store/reducers/ListSlice";
-import { Space, Typography } from 'antd';
+import { Space } from 'antd';
+import StatusNotifications from "../UIKit/StatusNotifications";
 
-const { Text } = Typography;
 
 /*** Filter Helpers */
 const getFilteredByType = (cards: ICard[], typesFilter: []) =>
@@ -58,16 +58,14 @@ const CardsWrapper = () => {
     return (
         <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
             {isLoading
-                ? <h1><Text type="warning">Loading...</Text></h1>
+                ? <StatusNotifications status={'loading'} />
                 : <CardsPanel cards={totalCards}/>
             }
             {!totalCards.length &&
-                <h4>No pokemon found on this page </h4>
+                <StatusNotifications status={'empty'} />
             }
             {error &&
-                <h1>
-                    <Text type="danger">Loading page error</Text>
-                </h1>
+                <StatusNotifications status={'error'} />
             }
         </Space>
     );

@@ -1,9 +1,9 @@
 import React from 'react';
 import SearchBar from "./components/TopBar/SearchBar";
-import BottomBar from "./components/BottomBar";
+import BottomBar from "./components/BottomBar/BottomBar";
 import CardsWrapper from "./components/Cards/CardsWrapper";
 import SelectBar from "./components/TopBar/SelectBar";
-import HeaderBar from "./components/HeaderBar";
+import HeaderBar from "./components/HeaderBar/HeaderBar";
 import './App.css';
 import 'antd/dist/reset.css';
 
