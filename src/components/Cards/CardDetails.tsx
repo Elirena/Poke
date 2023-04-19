@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import { Col, Typography , Row } from 'antd';
-import {useAppSelector} from "../../hooks/redux";
+import { useAppSelector } from '../../hooks/redux';
 
 const { Text } = Typography;
 
@@ -8,7 +8,10 @@ interface IProp {
     name: string
 }
 const CardDetails: FC<IProp> = ({name}) => {
-    const  {cards} = useAppSelector(state => state.listReducer)
+    const  {
+        cards
+    } = useAppSelector(state => state.listReducer)
+
     const card = cards.find(el => el.name === name)
 
     return (
@@ -31,9 +34,11 @@ const CardDetails: FC<IProp> = ({name}) => {
                     </Col>
                     <Col flex={3}>
                         <div>abilities: </div>
-                        <Text type="success"> {
-                            card.abilities?.map(el => <div>{el.ability.name}</div>)
-                        }</Text>
+                        <Text type="success">
+                            {card.abilities?.map(el =>
+                              <div>{el.ability.name}</div>)
+                            }
+                        </Text>
                     </Col>
                 </Row>
             }

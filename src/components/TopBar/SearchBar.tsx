@@ -1,37 +1,37 @@
 import React from 'react';
 import { Input, Space } from 'antd';
-import {useAppDispatch} from "../../hooks/redux";
-import {listSlice} from "../../store/reducers/ListSlice";
+import { useAppDispatch } from '../../hooks/redux';
+import { listSlice } from '../../store/reducers/ListSlice';
 
 const { Search } = Input;
 
 const SearchBar = () => {
-    const dispatch = useAppDispatch();
-    const {changeSearchFilter} = listSlice.actions;
+  const dispatch = useAppDispatch();
+  const { changeSearchFilter } = listSlice.actions;
 
-    const onSearch = (value: string) => {
-       if (value) {
-           dispatch(changeSearchFilter(value.toLowerCase()))
-       }
+  const onSearch = (value: string) => {
+    if (value) {
+      dispatch(changeSearchFilter(value.toLowerCase()));
     }
+  };
 
-    const onChange = (value: string) => {
-        if (!value) {
-            dispatch(changeSearchFilter(''))
-        }
+  const onChange = (value: string) => {
+    if (!value) {
+      dispatch(changeSearchFilter(''));
     }
+  };
 
-    return (
-        <span>
-            <Space direction="vertical">
-                <Search placeholder="POKEMON NAME"
-                        onSearch={onSearch}
-                        onChange={(e) => onChange(e.target.value)}
-                        style={{ width: 200 }}
-                />
-            </Space>
-        </span>
-    );
+  return (
+    <span className="ant-select-bar">
+      <Space direction='vertical'>
+        <Search
+          placeholder='POKEMON NAME'
+          onSearch={onSearch}
+          onChange={e => onChange(e.target.value)}
+        />
+      </Space>
+    </span>
+  );
 };
 
 export default SearchBar;

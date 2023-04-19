@@ -21,23 +21,28 @@ body .btn-bg {
   justify-content: center;
   align-items: center;
 }
+
 .btn-bg {
   background: #f75674;
 }
+
 .container {
   max-width: 1180px;
   margin: 0 auto;
 }
+
 article {
   padding: 1em;
   background-color: #fff;
 }
+
 header,
 footer {
   padding: 1em;
   padding-bottom: 20px;
   min-height: 80px;
 }
+
 .content {
   width: auto;
   height: auto;
@@ -48,38 +53,35 @@ footer {
   font-size: 16px;
   max-width: 1000px;
 }
+
 header {
   grid-area: header;
   background-color: #ffd740;
 }
+
 footer {
   grid-area: footer;
 }
+
 .grid-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr ;
   grid-template-rows: auto;
   grid-template-areas: "left-half right-half";
 }
+
 .half-left {
   grid-area: left-half;
   padding: 1em 0 1em 10em;
 }
+
 .half-right {
   grid-area: right-half;
   padding: 1em 10em 1em 0;
 }
 
-@media screen and (max-width: 700px) {
-  .grid-wrapper {
-    display: block;
-  }
-  .left-half, .right-half {
-    margin: 0px;
-  }
-  .content {
-    padding: 1em;
-  }
+.ant-select, .ant-select-bar {
+  width: 200px;
 }
 
 .collapseBar {
@@ -89,3 +91,39 @@ footer {
 .card {
   margin-left: 20px;
 }
+@media screen and (max-width: 700px) {
+  .grid-wrapper {
+    display: block;
+  }
+  .left-half, .right-half {
+    margin: 0;
+    padding: 0;
+  }
+  .content {
+    padding: 1em;
+  }
+  .ant-select, .ant-select-bar {
+    width: 100%;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .left-half, .right-half {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .half-left, .half-right {
+    padding: 1em;
+  }
+  .ant-select {
+    width: 100%;
+  }
+  .ant-select-bar .ant-space{
+    width: 100%;
+    display: block;
+  }
+}
+
