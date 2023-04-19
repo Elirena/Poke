@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Poke/static/css/main.17ff8f2d.css",
+    "main.js": "/Poke/static/js/main.6fd87c1d.js",
+    "index.html": "/Poke/index.html",
+    "main.17ff8f2d.css.map": "/Poke/static/css/main.17ff8f2d.css.map",
+    "main.6fd87c1d.js.map": "/Poke/static/js/main.6fd87c1d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.17ff8f2d.css",
+    "static/js/main.6fd87c1d.js"
+  ]
+}
