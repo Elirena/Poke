@@ -1,7 +1,7 @@
 export interface ICard {
   name: string;
   avatar?: string;
-  types?: [];
+  types?: string[];
   height?: number;
   weight?: number;
   baseExperience?: number;

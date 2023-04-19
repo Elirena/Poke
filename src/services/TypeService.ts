@@ -1,6 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-
-const APIUrl = 'https://pokeapi.co/api/v2';
+import { APIUrl } from './API';
 
 export const typeAPI = createApi({
   reducerPath: 'typeAPI',

@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { cardAPI } from '../../services/CardService';
 import { listSlice } from '../../store/reducers/ListSlice';
 import { useAppDispatch } from '../../hooks/redux';
-import StatusNotifications from '../UIKit/StatusNotifications';
+import { StatusNotifications } from '../UIKit/StatusNotifications';
 import { Typography } from 'antd';
 
 const { Text } = Typography;
@@ -11,7 +11,7 @@ interface IProp {
   name: string;
 }
 
-const CardItem: FC<IProp> = ({ name }) => {
+export const CardItem: FC<IProp> = ({ name }) => {
   const { addNewCard } = listSlice.actions;
   const dispatch = useAppDispatch();
 
@@ -20,6 +20,12 @@ const CardItem: FC<IProp> = ({ name }) => {
     isLoading,
     error
   } = cardAPI.useFetchCardQuery(name);
+
+  useEffect(() => {
+    if (card && !isLoading && !error) {
+      dispatch(addNewCard(card))
+    }
+  }, [addNewCard, card, dispatch, error, isLoading]);
 
   if (isLoading && !card) {
     return (
@@ -31,8 +37,6 @@ const CardItem: FC<IProp> = ({ name }) => {
   if (error) {
     return <StatusNotifications status={'error'} />;
   }
-
-  dispatch(addNewCard(card));
 
   return (
     <div className="card">
@@ -53,5 +57,3 @@ const CardItem: FC<IProp> = ({ name }) => {
     </div>
   );
 };
-
-export default CardItem;

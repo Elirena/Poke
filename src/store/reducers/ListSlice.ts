@@ -8,7 +8,7 @@ interface ListState {
   itemsPerPage: number;
   offset: number;
   totalCardsCount: number;
-  typesFilter: [];
+  typesFilter: string[];
   searchFilter: string;
 }
 
@@ -38,7 +38,7 @@ export const listSlice = createSlice({
           {
             name: action.payload.name,
             avatar: action.payload.sprites.front_default,
-            types: action.payload.types,
+            types: action.payload.types.map((el: any) => el.type.name),
             height: action.payload.height,
             weight: action.payload.weight,
             baseExperience: action.payload.base_experience,
@@ -56,7 +56,7 @@ export const listSlice = createSlice({
       state.typesFilter = [];
     },
     /*** Filters on page */
-    changeTypesFilter(state, action: PayloadAction<[]>) {
+    changeTypesFilter(state, action: PayloadAction<string[]>) {
       state.typesFilter = action.payload;
     },
     changeSearchFilter(state, action: PayloadAction<string>) {

@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, { FC, useMemo } from 'react';
 import { Col, Typography , Row } from 'antd';
 import { useAppSelector } from '../../hooks/redux';
 
@@ -7,12 +7,13 @@ const { Text } = Typography;
 interface IProp {
     name: string
 }
-const CardDetails: FC<IProp> = ({name}) => {
+export const CardDetails: FC<IProp> = ({name}) => {
     const  {
         cards
     } = useAppSelector(state => state.listReducer)
 
-    const card = cards.find(el => el.name === name)
+    const card = useMemo(() => cards.find(el => el.name === name
+      ),[cards, name]);
 
     return (
         <div>
@@ -36,7 +37,9 @@ const CardDetails: FC<IProp> = ({name}) => {
                         <div>abilities: </div>
                         <Text type="success">
                             {card.abilities?.map(el =>
-                              <div>{el.ability.name}</div>)
+                              <div key={`${el.ability.name}`}>
+                                  {el.ability.name}
+                              </div>)
                             }
                         </Text>
                     </Col>
@@ -45,5 +48,3 @@ const CardDetails: FC<IProp> = ({name}) => {
         </div>
     );
 };
-
-export default CardDetails;

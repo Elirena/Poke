@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { APIUrl } from './API';
 
-const APIUrl = 'https://pokeapi.co/api/v2';
 export const cardAPI = createApi({
   reducerPath: 'cardAPI',
   tagTypes: ['Cards'],
@@ -16,7 +16,7 @@ export const cardAPI = createApi({
     fetchCard: build.query({
       query: (name: string) => ({
         url: `/pokemon/${name}`,
-        params: { _name: name },
+        params: { name },
       }),
     }),
   }),

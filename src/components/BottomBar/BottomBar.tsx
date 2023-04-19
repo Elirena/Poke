@@ -5,7 +5,7 @@ import { Pagination } from 'antd';
 
 const itemsPerPageOptions = [10, 20, 50];
 
-const BottomBar = () => {
+export const BottomBar = () => {
   const dispatch = useAppDispatch();
   const { changeItemsPerPage, changeOffset } = listSlice.actions;
   const {
@@ -35,5 +35,3 @@ const BottomBar = () => {
     />
   );
 };
-
-export default BottomBar;

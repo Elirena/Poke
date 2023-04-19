@@ -3,20 +3,20 @@ import { ICard } from '../../models/ICard';
 import { cardAPI } from '../../services/CardService';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { listSlice } from '../../store/reducers/ListSlice';
-import StatusNotifications from '../UIKit/StatusNotifications';
-import CardsPanel from './CardsPanel';
+import { StatusNotifications } from '../UIKit/StatusNotifications';
+import { CardsPanel } from './CardsPanel';
 
 import { Space } from 'antd';
 
 /*** Filter Helpers */
-const getFilteredByType = (cards: ICard[], typesFilter: []) =>
-  cards.filter(el => el.types?.find(({ type: { name } }) => typesFilter.includes(name)));
+const getFilteredByType = (cards: ICard[], typesFilter: string[]) =>
+  cards.filter(el => el.types?.find(name => typesFilter.includes(name)));
 
 const getFilteredBySearch = (cards: ICard[], searchFilter: string) =>
   cards.filter(el => el.name === searchFilter);
 /*** */
 
-const CardsWrapper = () => {
+export const CardsWrapper = () => {
   const {
     itemsPerPage,
     offset,
@@ -81,5 +81,3 @@ const CardsWrapper = () => {
     </Space>
   );
 };
-
-export default CardsWrapper;

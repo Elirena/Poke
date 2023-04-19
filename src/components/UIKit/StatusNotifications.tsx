@@ -7,7 +7,7 @@ interface IProp {
   status: 'loading' | 'empty' | 'error';
 }
 
-const StatusNotifications: FC<IProp> = ({ status }) => {
+export const StatusNotifications: FC<IProp> = ({ status }) => {
   return (
     <>
       {status === 'loading' && (
@@ -26,5 +26,3 @@ const StatusNotifications: FC<IProp> = ({ status }) => {
     </>
   );
 };
-
-export default StatusNotifications;

@@ -5,7 +5,7 @@ import { listSlice } from '../../store/reducers/ListSlice';
 
 const { Search } = Input;
 
-const SearchBar = () => {
+export const SearchBar = () => {
   const dispatch = useAppDispatch();
   const { changeSearchFilter } = listSlice.actions;
 
@@ -33,5 +33,3 @@ const SearchBar = () => {
     </span>
   );
 };
-
-export default SearchBar;
